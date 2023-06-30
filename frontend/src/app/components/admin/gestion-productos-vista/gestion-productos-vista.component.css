@@ -1,0 +1,14 @@
+.vistaTabla{
+    overflow: auto;
+    height: 90vh;
+    
+}
+
+.vista{
+    margin-top: 120px;
+}
+
+.bgtable{
+    background-color: #4D089A;
+    text-align: center;
+}

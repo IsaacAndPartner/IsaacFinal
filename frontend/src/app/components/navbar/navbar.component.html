@@ -1,0 +1,98 @@
+
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+<link rel="stylesheet" href="navbar.component.css">
+
+    <nav class="nav">
+
+          
+        <div class="brand-wrapper">
+            <span class="logo-container">
+                <img src="../../../assets/img/logo2.svg" alt="" width="130px" class="logoimg"> 
+            </span>
+            </div>
+        
+        <ul class="nav-content">
+            <li class="nav-list" routerLink="/eventos">
+                    <span class="link-item active"> 
+                        <i class='link-icon'>
+                            <img src="../../../assets/img/iconamoon_home.svg" alt="">
+                        </i>
+                        <span class="link-text ">inicio</span>
+                    </span>
+            </li>
+            <li class="nav-list" (click)="openOffCanvas('offcanvasExample2')">
+                   <span class="link-item">
+                    <i class='link-icon'>
+                        <img src="../../../assets/img/newUser.svg" alt="">
+                    </i>
+                    <span class="link-text">Registro</span>
+                   </span>
+            </li>
+
+            <li class="nav-list link-item" *ngIf="isAuthenticated" (click)="logout()">
+                <span>
+                  <i class='link-icon'>
+                    <img src="../../../assets/img/logout.svg" alt="" width="35px">
+                  </i>
+                  <span class="link-text">Cerrar sesión</span>
+                </span>
+              </li>
+
+            <li class="nav-list" *ngIf="!isAuthenticated" (click)="openOffCanvas('offcanvasExample3')">
+                <span class="link-item">
+                 <i class='link-icon'>
+                     <img src="../../../assets/img/login-icon.svg" alt="">
+                 </i>
+                 <span class="link-text">Login</span>
+                </span>
+            </li>
+
+            <li class="nav-list link-item" >
+                <i class='link-icon'>
+                    <img src="../../../assets/img/cart-icon.svg">
+                </i>
+                <span class="link-text">Carrito</span>
+        </li>
+            <li class="nav-list link-item" (click)="openOffCanvas('offcanvasExample1')" *ngIf="isAuthenticated">
+                
+                    <i class='link-icon'>
+                        <img src="../../../assets/img/add-event-icon.svg">
+                    </i>
+                    <span class="link-text">Registra un evento</span>
+            </li>
+
+            <li class="nav-list" routerLink="/gestion-productos-vista" *ngIf="isAuthenticated">
+                <span class="link-item">
+                 <i class='link-icon'>
+                     <img src="../../../assets/img/adminlogo.svg" alt="">
+                 </i>
+                 <span class="link-text">admin</span>
+                </span>
+            </li>
+
+            <li class="nav-list link-item" routerLink="/menu">
+
+                    <i class='link-icon'>
+                        <img src="../../../assets/img/menu-icon.svg" alt="">
+                    </i>
+                    <span class="link-text">Menú</span>
+
+            </li>
+            
+
+            <span class="indicator"></span>
+        </ul>
+        <script src="navbar.component.ts"></script>
+    </nav>
+
+    <app-sidebar [offcanvasId]="'offcanvasExample1'">
+        <app-registroevents></app-registroevents>
+    </app-sidebar>
+    <app-sidebar [offcanvasId]="'offcanvasExample2'" [offcanvasTitle]="'Registro de usuarios'">
+        <app-registro></app-registro>
+    </app-sidebar>
+    <app-sidebar [offcanvasId]="'offcanvasExample3'" [offcanvasTitle]="'login'">
+        <app-login></app-login>
+    </app-sidebar>
